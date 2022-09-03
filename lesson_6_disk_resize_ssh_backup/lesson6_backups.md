@@ -1,7 +1,8 @@
 # Lesson 6 - Backups
 
 
-![title](images2/Capture1.PNG)
+![title](images3/Capture1.PNG)
+![title](images3/Capture2.PNG)
 
 
 ### Backup Common Storage ###
