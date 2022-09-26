@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxdemo
+  namespace: demo-2
+spec:
+  selector:
+    matchLabels:
+      app: nginxdemo
+  template:
+    metadata:
+      labels:
+        app: nginxdemo
+    spec:
+      containers:
+      - name: nginxdemo
+        image: nginxdemos/hello
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxdemo
+  namespace: demo-2
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginxdemo
+  ports:
+  - port: 6080
+    targetPort: 80
