@@ -21,6 +21,7 @@ Prerequisite:
 4. Add free space to pools - root and data
 
 ```lvextend -l +10%FREE /dev/pve/root```
+
 ```lvextend -l +100%FREE /dev/pve/data```
 
 
